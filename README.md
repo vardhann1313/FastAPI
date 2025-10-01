@@ -1,5 +1,6 @@
 # Backend using FastAPI
-Exploring Python's Backend framework "FastAPI", Creating mini backend projects. 
+Exploring Python's Backend framework "FastAPI", Creating mini backend projects.
+FastAPI is a modern, high-performance web framework for building APIs with Python. It is designed for ease of use.
 
 ## How to get started with FastAPI
 ### Tech used 
