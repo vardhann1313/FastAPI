@@ -1,0 +1,14 @@
+[project]
+name = "login-signup-app"
+version = "0.1.0"
+description = "Basic login signup app"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.118.0",
+    "motor>=3.7.1",
+    "passlib[argon2]>=1.7.4",
+    "pydantic[email]>=2.11.9",
+    "python-jose[cryptography]>=3.5.0",
+    "uvicorn>=0.37.0",
+]
