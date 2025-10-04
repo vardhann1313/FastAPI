@@ -9,3 +9,4 @@
 - MongoDB connection using "motor"
 - Storing Hashed (using "argon2") password in DB
 - On successfull Signup/Login, JWT token generation.
+- One restricted resource accessible using valid token.
