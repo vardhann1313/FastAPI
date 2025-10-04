@@ -1,11 +1,12 @@
 from typing import Dict
-from fastapi import HTTPException
+from bson import ObjectId
+from fastapi import Depends, HTTPException
 from fastapi.responses import JSONResponse
 from starlette.status import HTTP_200_OK, HTTP_201_CREATED, HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 
 # JWT, DB and password hashing functions
 from .Database import DB
-from App.Utils.JWTUtils import create_token
+from App.Utils.JWTUtils import create_token, validate_token
 from App.Utils.PasswordUtils import hash_password, verify_password
 
 # User signup service method
@@ -88,6 +89,41 @@ async def login(user: Dict) -> JSONResponse:
 
     except Exception as e:
         # Extract code from exception and raise error
+        code = int(str(e).split(":")[0])
+        raise HTTPException(
+            status_code=code,
+            detail=str(e)
+        )
+
+# Restricted API example
+async def get_details(token: str) -> JSONResponse:
+
+    # Extracting userId from token
+    userId = ObjectId(validate_token(token=token))
+
+    try:
+
+        # Finding user in DB
+        user = await DB["users"].find_one({"_id": userId})
+        if not user:
+            raise HTTPException(
+                status_code=HTTP_404_NOT_FOUND,
+                detail="User not found !"
+            )
+
+        # Solving ObjectId issue
+        user["_id"] = str(user["_id"])
+
+        # Sending response
+        return JSONResponse(
+            status_code=HTTP_200_OK,
+            content={
+                "success": True,
+                "data": user
+            }
+        )
+
+    except Exception as e:
         code = int(str(e).split(":")[0])
         raise HTTPException(
             status_code=code,
