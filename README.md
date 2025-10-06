@@ -3,6 +3,10 @@
 - How to create basic server using FastAPI.
 ## Todo App
 - Basic Todo app using Pydantic to model data.
+## Password Hasher
+- Takes password string as input.
+- Returns back hashCode of the password.
+- Uses passlib modules's argon2 for hashing.
 ## Login Signup Authentication app
 - Basic signup using name, email and password.
 - Login using valid credentials
