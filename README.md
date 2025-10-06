@@ -14,3 +14,6 @@
 - Storing Hashed (using "argon2") password in DB
 - On successfull Signup/Login, JWT token generation.
 - One restricted resource accessible using valid token.
+## SQLAlchemyDemo
+- Understanding workflow of SQLAlchemy for seamless Database connection.
+- Storing User detail in DB and sending back response.

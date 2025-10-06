@@ -1,0 +1,12 @@
+[project]
+name = "sqlalchemydemo"
+version = "0.1.0"
+description = "Trying to understand SQLAlchemy"
+requires-python = ">=3.11"
+dependencies = [
+    "aiomysql>=0.2.0",
+    "fastapi>=0.118.0",
+    "pydantic[email]>=2.11.10",
+    "sqlalchemy[asyncio]>=2.0.43",
+    "uvicorn>=0.37.0",
+]
