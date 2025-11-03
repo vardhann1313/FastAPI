@@ -2,8 +2,8 @@ from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 
 # Setting up token retrieval -- expects /login to provide token
-from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-security = HTTPBearer()
+from fastapi.security import OAuth2PasswordBearer
+oauth2 = OAuth2PasswordBearer(tokenUrl="/login")
 
 from .Model import UserLogin, UserSignup
 from .AuthService import signup, login, get_details
@@ -23,5 +23,7 @@ async def login_route(user: UserLogin) -> JSONResponse:
 
 # Restricted resource
 @Router.get("/get")
-async def get_user_details(credentials: HTTPAuthorizationCredentials = Depends(security)) -> JSONResponse:
-    return await get_details(token=credentials.credentials)
+async def get_user_details(token: str = Depends(oauth2)) -> JSONResponse:
+    return await get_details(token)
+
+
