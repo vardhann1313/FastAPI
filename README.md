@@ -20,9 +20,9 @@
 ## RAG Pipeline
 - Implementing RAG pipeline using Langchain modules.
 - Pipeline flow 
-> Upload file
-> Process file
-> Store embeddings in Chromadb
-> Ask question with unique filename
-> Get retriever for filename
-> Get answer using retriever
+1. Upload file
+2. Process file
+3. Store embeddings in Chromadb
+4. Ask question with unique filename
+5. Get retriever for filename
+6. Get answer using retriever
