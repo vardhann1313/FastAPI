@@ -17,3 +17,12 @@
 ## SQLAlchemyDemo
 - Understanding workflow of SQLAlchemy for seamless Database connection.
 - Storing User detail in DB and sending back response.
+## RAG Pipeline
+- Implementing RAG pipeline using Langchain modules.
+- Pipeline flow 
+-- Upload file
+-- Process file
+-- Store embeddings in Chromadb
+-- Ask question with unique filename
+-- Get retriever for filename
+-- Get answer using retriever
